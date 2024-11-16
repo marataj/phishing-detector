@@ -140,7 +140,7 @@ class VirusTotalScanner(Scanner):
                     malicious_num = int(body["data"]["attributes"]["stats"]["malicious"])
                     return self.URLScanResult(scann_id.url, self._eval_is_phishing(malicious_num))
 
-                await asyncio.sleep(10)  # TODO: changed to 10 due to test on free API - to be changed to 0.1
+                await asyncio.sleep(20)  # TODO: changed to 20 due to test on free API - to be changed to 0.1
 
         raise ValueError("Maximum number of attempts to get the TotalVirus scan result exceeded.")
 

@@ -1,5 +1,5 @@
 #  ---------------------------------------------------------------------------------------------------------------------
-# Name:             detector.scanners.gsb_scanner
+# Name:             detector.scanners.google_safe_browsing_scanner
 # Created By :      marataj
 # Created Date:     2024-11-13
 #  ---------------------------------------------------------------------------------------------------------------------
@@ -116,8 +116,8 @@ class GSBScanner(Scanner):
 
     async def run(self, session: ClientSession) -> None:
         """
-        Abstract method that runs the scan of the URLs. Each scanning shall implement its own logic, depending on the
-        mechanism requirements.
+        TODO: verify correctness of all the docstrings
+        Method that runs the scan of the URLs.
 
         Parameters
         ----------

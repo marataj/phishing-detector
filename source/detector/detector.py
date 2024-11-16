@@ -17,6 +17,7 @@ from aiohttp import ClientSession
 from source.detector.scanners.google_safe_browsing_scanner import GSBScanner
 from source.detector.scanners.scanner import Scanner
 from source.detector.scanners.virus_total_scanner import VirusTotalScanner
+from source.detector.scanners.website_status_scanner import WebsiteStatusScanner
 
 __all__ = ["Detector"]
 
@@ -36,7 +37,8 @@ class Detector:
         Initialization of the Detector instance.
 
         """
-        self._supported_scanners = [VirusTotalScanner, GSBScanner]
+        self._supported_scanners = [VirusTotalScanner, GSBScanner, WebsiteStatusScanner]
+        self._global_session_timeout_s = 5
 
     def _validate_input(self, urls: list[str]) -> list[str]:
         """
@@ -79,7 +81,7 @@ class Detector:
             Lst of scanners.
 
         """
-        async with ClientSession() as session:
+        async with ClientSession(timeout=self._global_session_timeout_s) as session:
             await asyncio.gather(*[scanner.run(session) for scanner in scanners])
 
     def scan(self, url_list: list[str]) -> dict:
@@ -115,6 +117,7 @@ class Detector:
 
     @staticmethod
     def _create_report(input_reports, urls) -> dict:
+        # TODO: add main is_phising result
         report = {"results": {url: {} for url in urls}, "stats": {}}
         for i in input_reports:
             for url in urls:
