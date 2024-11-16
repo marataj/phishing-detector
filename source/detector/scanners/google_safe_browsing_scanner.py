@@ -133,5 +133,5 @@ class GSBScanner(Scanner):
     def generate_report(self) -> dict[str, Any]:
         return {
             "results": {url: {"is_phishing_GoogleSafeBrowsing": result} for url, result in self._results.items()},
-            "stats": {"scan_time_VirusTotal": self._scan_time},
+            "stats": {"scan_time_GoogleSafeBrowsing": self._scan_time},
         }

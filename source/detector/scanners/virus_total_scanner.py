@@ -142,7 +142,7 @@ class VirusTotalScanner(Scanner):
 
                 await asyncio.sleep(10)  # TODO: changed to 10 due to test on free API - to be changed to 0.1
 
-            raise ValueError("Maximum number of attempts to get the TotalVirus scan result exceeded.")
+        raise ValueError("Maximum number of attempts to get the TotalVirus scan result exceeded.")
 
     async def _get_results(self, session: ClientSession, scan_ids: list[URLScanID]) -> list[URLScanResult]:
         """
