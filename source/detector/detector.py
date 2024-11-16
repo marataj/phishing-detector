@@ -12,7 +12,7 @@ Module containing the logic of detector engine.
 import asyncio
 from urllib.parse import urlparse
 
-from aiohttp import ClientSession
+from aiohttp import ClientSession, ClientTimeout
 
 from source.detector.scanners.google_safe_browsing_scanner import GSBScanner
 from source.detector.scanners.scanner import Scanner
@@ -38,7 +38,7 @@ class Detector:
 
         """
         self._supported_scanners = [VirusTotalScanner, GSBScanner, WebsiteStatusScanner]
-        self._global_session_timeout_s = 5
+        self._global_session_timeout = ClientTimeout(5)
 
     def _validate_input(self, urls: list[str]) -> list[str]:
         """
@@ -81,7 +81,7 @@ class Detector:
             Lst of scanners.
 
         """
-        async with ClientSession(timeout=self._global_session_timeout_s) as session:
+        async with ClientSession(timeout=self._global_session_timeout) as session:
             await asyncio.gather(*[scanner.run(session) for scanner in scanners])
 
     def scan(self, url_list: list[str]) -> dict:
