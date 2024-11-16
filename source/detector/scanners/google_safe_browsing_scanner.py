@@ -25,7 +25,7 @@ __all__ = ["GSBScanner"]
 
 class GSBScanner(Scanner):
     """
-    Class responsible for scanning the URLs with using Google Safe Browsing APIv4.
+    Class responsible for scanning the URLs with using Google Safe Browsing API.
 
     """
 
@@ -59,7 +59,12 @@ class GSBScanner(Scanner):
             {
                 "client": {"clientId": "phishing_detector", "clientVersion": "1.0"},
                 "threatInfo": {
-                    "threatTypes": ["MALWARE", "SOCIAL_ENGINEERING"],
+                    "threatTypes": [
+                        "MALWARE",
+                        "SOCIAL_ENGINEERING",
+                        "UNWANTED_SOFTWARE",
+                        "POTENTIALLY_HARMFUL_APPLICATION",
+                    ],
                     "platformTypes": ["ANY_PLATFORM"],
                     "threatEntryTypes": ["URL"],
                     "threatEntries": [{"url": url} for url in self.url_list],
