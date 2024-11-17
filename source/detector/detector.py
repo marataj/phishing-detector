@@ -18,8 +18,7 @@ from source.detector.report import Report, SubReport, generate_report
 from source.detector.scanners.google_safe_browsing_scanner import GSBScanner
 from source.detector.scanners.scanner import Scanner
 from source.detector.scanners.virus_total_scanner import VirusTotalScanner
-from source.detector.scanners.website_status_scanner import \
-    WebsiteStatusScanner
+from source.detector.scanners.website_status_scanner import WebsiteStatusScanner
 
 __all__ = ["Detector"]
 
@@ -39,7 +38,7 @@ class Detector:
 
         """
         self._supported_scanners = [VirusTotalScanner, GSBScanner, WebsiteStatusScanner]
-        self._global_session_timeout = ClientTimeout(5)
+        self._global_session_timeout = ClientTimeout(10)
 
     def _validate_input(self, urls: list[str]) -> list[str]:
         """
@@ -107,7 +106,7 @@ class Detector:
         Returns
         -------
         `bool`
-            True if URL is valid, False oterwise.
+            True if URL is valid, False otherwise.
 
         """
         try:

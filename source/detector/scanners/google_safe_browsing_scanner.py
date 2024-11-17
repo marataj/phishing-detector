@@ -118,7 +118,7 @@ class GSBScanner(Scanner):
             self._api_url, headers={"Content-Type": "application/json"}, data=self._prepare_request_payload()
         ) as response:
             if response.status != HTTPStatus.OK:
-                raise HTTPException(f"Unexpected response status: {HTTPStatus(response.status)}")
+                raise HTTPException(f"Google Safe Browsing: Unexpected response status: {HTTPStatus(response.status)}")
 
             body = await response.json()
             return body

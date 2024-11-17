@@ -77,7 +77,7 @@ class VirusTotalScanner(Scanner):
             url=f"{self._api_url}urls", headers={"x-apikey": self.__api_key}, data={"url": url}
         ) as response:
             if response.status != HTTPStatus.OK:
-                raise HTTPException(f"Unexpected response status: {HTTPStatus(response.status)}")
+                raise HTTPException(f"VirusTotal: Unexpected response status: {HTTPStatus(response.status)}")
 
             body = await response.json()
             return self.URLScanID(url, body["data"]["id"])
