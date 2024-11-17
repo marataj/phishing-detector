@@ -25,9 +25,10 @@ __all__ = ["GSBScanner"]
 
 class GSBScanner(Scanner):
     """
-    Class responsible for scanning the URLs with using Google Safe Browsing API.
+    Class responsible for scanning the URLs with using Google Safe Browsing API v4.
 
     """
+    # TODO: add handling of the exceptions from exceeding the free API limits
 
     def __init__(self, url_list: list[str]) -> None:
         """
