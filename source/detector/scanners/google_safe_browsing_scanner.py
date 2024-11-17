@@ -13,10 +13,10 @@ import json
 from datetime import datetime
 from http import HTTPStatus
 from http.client import HTTPException
-from typing import Any
 
 from aiohttp import ClientSession
 
+from source.detector.report import IsPhishingResult, ScanTime, SubReport
 from source.detector.scanners.scanner import Scanner
 from source.settings import GSB_API_KEY
 
@@ -28,6 +28,7 @@ class GSBScanner(Scanner):
     Class responsible for scanning the URLs with using Google Safe Browsing API v4.
 
     """
+
     # TODO: add handling of the exceptions from exceeding the free API limits
 
     def __init__(self, url_list: list[str]) -> None:
@@ -43,8 +44,8 @@ class GSBScanner(Scanner):
         super().__init__(url_list)
         self.__api_key = GSB_API_KEY
         self._api_url = f"https://safebrowsing.googleapis.com/v4/threatMatches:find?key={self.__api_key}"
-        self._results = None
-        self._scan_time = None
+        self._results: dict[str, IsPhishingResult] | None = None
+        self._scan_time: ScanTime | None = None
 
     def _prepare_request_payload(self) -> str:
         """
@@ -84,12 +85,14 @@ class GSBScanner(Scanner):
             The body of the scanning response.
 
         """
-        self._results = {url: False for url in self.url_list}
+        results = {url: False for url in self.url_list}
         if "matches" not in resp_body:
             return
 
         for match in resp_body["matches"]:
-            self._results[match["threat"]["url"]] = True
+            results[match["threat"]["url"]] = True
+
+        self._results = {url: IsPhishingResult(self.__class__.__name__, result) for url, result in results.items()}
 
     async def _scan_urls(self, session: ClientSession) -> dict:
         """
@@ -134,10 +137,23 @@ class GSBScanner(Scanner):
         start_time = datetime.now()
         body = await self._scan_urls(session)
         self._process_results(body)
-        self._scan_time = datetime.now() - start_time
+        self._scan_time = ScanTime(self.__class__.__name__, datetime.now() - start_time)
 
-    def generate_report(self) -> dict[str, Any]:
-        return {
-            "results": {url: {"is_phishing_GoogleSafeBrowsing": result} for url, result in self._results.items()},
-            "stats": {"scan_time_GoogleSafeBrowsing": self._scan_time},
-        }
+    def generate_report(self) -> SubReport:
+        """
+        Method responsible for generating the SubReport from the GSB scan.
+
+        Raises
+        ------
+        ValueError
+            Raises when there is no results to be processed.
+
+        Returns
+        -------
+        `SubReport`
+            SubReport from the GSB scan.
+
+        """
+        if not (self._results and self._scan_time):
+            raise ValueError("Report generating suspended - lack of results to be processed.")
+        return SubReport(self.__class__.__name__, self._results, [self._scan_time])

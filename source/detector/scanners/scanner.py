@@ -10,9 +10,9 @@ Module containing the abstract class defining the basic interface of each scanne
 """
 
 from abc import ABC, abstractmethod
-from typing import Any
 
 from aiohttp import ClientSession
+from detector.report import SubReport
 
 __all__ = ["Scanner"]
 
@@ -50,15 +50,14 @@ class Scanner(ABC):
         """
 
     @abstractmethod
-    def generate_report(self) -> dict[str, Any]:
+    def generate_report(self) -> SubReport:
         """
         Abstract method that generates the scanning report. Each scan shall implement its onw logic, depending on the
         features it provides.
 
         Returns
         -------
-        `dict` [`str`, `Any`]
-            Report as the dictionary object.
-            TODO: report structure must be assumed
+        `SubReport`
+            SubReport from the scan.
 
         """

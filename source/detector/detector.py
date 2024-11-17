@@ -14,10 +14,12 @@ from urllib.parse import urlparse
 
 from aiohttp import ClientSession, ClientTimeout
 
+from source.detector.report import Report, SubReport, generate_report
 from source.detector.scanners.google_safe_browsing_scanner import GSBScanner
 from source.detector.scanners.scanner import Scanner
 from source.detector.scanners.virus_total_scanner import VirusTotalScanner
-from source.detector.scanners.website_status_scanner import WebsiteStatusScanner
+from source.detector.scanners.website_status_scanner import \
+    WebsiteStatusScanner
 
 __all__ = ["Detector"]
 
@@ -25,7 +27,6 @@ __all__ = ["Detector"]
 class Detector:
     """
     Class responsible for detecting the malicious URLs using several methodes.
-    TODO: processing of the final report, overall scan duration in stats
 
     """
 
@@ -84,7 +85,7 @@ class Detector:
         async with ClientSession(timeout=self._global_session_timeout) as session:
             await asyncio.gather(*[scanner.run(session) for scanner in scanners])
 
-    def scan(self, url_list: list[str]) -> dict:
+    def scan(self, url_list: list[str]) -> Report:
         self._validate_input(url_list)
         scanners = [scannerType(url_list) for scannerType in self._supported_scanners]
         asyncio.run(self._scan_urls(scanners))
@@ -116,12 +117,21 @@ class Detector:
             return False
 
     @staticmethod
-    def _create_report(input_reports, urls) -> dict:
-        # TODO: add main is_phising result
-        report = {"results": {url: {} for url in urls}, "stats": {}}
-        for i in input_reports:
-            for url in urls:
-                report["results"][url].update({**i["results"][url]})
-            report["stats"].update(i["stats"])
+    def _create_report(sub_reports: list[SubReport], urls: list[str]) -> Report:
+        """
+        Method responsible for creating the final report.
 
-        return report
+        Parameters
+        ----------
+        sub_reports: `list` [`SubReport`]
+            List containing sub-reports from each scanner.
+        urls: `list` [`str`]
+            List containing scanned URLs.
+
+        Returns
+        -------
+        `Report`
+            Final report from URL scanning.
+
+        """
+        return generate_report(sub_reports, urls)

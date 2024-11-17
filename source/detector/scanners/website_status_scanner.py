@@ -12,11 +12,13 @@ Module containing implementation of the website status scanner.
 import asyncio
 from datetime import datetime
 from http import HTTPStatus
-from typing import Any, Tuple
+from typing import Tuple
 
 from aiohttp import ClientSession
 from aiohttp.client_exceptions import ClientConnectorError
 
+from source.detector.report import (AliveStats, IsAliveResult, ScanTime,
+                                    SubReport)
 from source.detector.scanners.scanner import Scanner
 
 __all__ = ["WebsiteStatusScanner"]
@@ -39,8 +41,8 @@ class WebsiteStatusScanner(Scanner):
 
         """
         super().__init__(url_list)
-        self._results = None
-        self._scan_time = None
+        self._results: dict[str, IsAliveResult] | None = None
+        self._scan_time: ScanTime | None = None
         self.request_timeout = 3
         self._dead_codes = [
             HTTPStatus.BAD_REQUEST,
@@ -112,13 +114,14 @@ class WebsiteStatusScanner(Scanner):
 
         Returns
         -------
+        TODO: adjust types to report types
         `dict` [`str`, `Tuple`[`bool`, `int` | `None`]]
             Dictionary with scanned URL as a key and Tuple containing scanning result and response code as a value.
 
         """
         tasks = [self._scan_url(session, url) for url in self.url_list]
         results = await asyncio.gather(*tasks)
-        return {url: (is_alive, status_code) for url, is_alive, status_code in results}
+        return {url: IsAliveResult(is_alive, status_code) for url, is_alive, status_code in results}
 
     async def run(self, session: ClientSession) -> None:
         """
@@ -132,20 +135,30 @@ class WebsiteStatusScanner(Scanner):
         """
         start_time = datetime.now()
         self._results = await self._scan_urls(session)
-        self._scan_time = datetime.now() - start_time
+        self._scan_time = ScanTime(self.__class__.__name__, datetime.now() - start_time)
 
-    def generate_report(self) -> dict[str, Any]:
-        alive_number = len(list(filter(lambda x: x[0] is True, self._results.values())))
+    def generate_report(self) -> SubReport:
+        """
+        Method responsible for generating the SubReport from the website status scan.
+
+        Raises
+        ------
+        ValueError
+            Raises when there is no results to be processed.
+
+        Returns
+        -------
+        `SubReport`
+            SubReport from the website status scan.
+
+        """
+
+        alive_number = len(list(filter(lambda x: x.is_alive is True, self._results.values())))
         alive_percentage = alive_number / len(self.url_list) * 100
 
-        return {
-            "results": {
-                url: {"is_alive": result[0], "is_alive_response_code": result[1]}
-                for url, result in self._results.items()
-            },
-            "stats": {
-                "scan_time_website_status_scanner": self._scan_time,
-                "alive_number": alive_number,
-                "alive_percentage": alive_percentage,
-            },
-        }
+        if not (self._results and self._scan_time):
+            raise ValueError("Report generating suspended - lack of results to be processed.")
+
+        return SubReport(
+            self.__class__.__name__, self._results, [self._scan_time, AliveStats(alive_number, alive_percentage)]
+        )

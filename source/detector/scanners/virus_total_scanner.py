@@ -14,10 +14,10 @@ from collections import namedtuple
 from datetime import datetime
 from http import HTTPStatus
 from http.client import HTTPException
-from typing import Any
 
 from aiohttp import ClientSession
 
+from source.detector.report import IsPhishingResult, ScanTime, SubReport
 from source.detector.scanners.scanner import Scanner
 from source.settings import VIRUS_TOTAL_API_KEY
 
@@ -47,8 +47,8 @@ class VirusTotalScanner(Scanner):
         self.__api_key = VIRUS_TOTAL_API_KEY
         self._api_url = "https://www.virustotal.com/api/v3/"
         self._retry_counter = 3  # TODO: changed to 3 due to tests on the free API version - to be changed to 5
-        self._results: dict[str, str] | None = None
-        self._scan_time = None
+        self._results: dict[str, IsPhishingResult] | None = None
+        self._scan_time: ScanTime | None = None
         self._phishing_threshold = 3
 
     async def _scan_single_url(self, session: ClientSession, url: str) -> URLScanID:
@@ -196,11 +196,24 @@ class VirusTotalScanner(Scanner):
         scan_ids = await self._scan_urls(session)
         await asyncio.sleep(3)  # TODO: wait 3 s due to the tests on the free API, to be removed
         results = await self._get_results(session, scan_ids)
-        self._results = {res.url: res.result for res in results}
-        self._scan_time = datetime.now() - start_time
+        self._results = {res.url: IsPhishingResult(self.__class__.__name__, res.result) for res in results}
+        self._scan_time = ScanTime(self.__class__.__name__, datetime.now() - start_time)
 
-    def generate_report(self) -> dict[str, Any]:
-        return {
-            "results": {url: {"is_phishing_VirusTotal": result} for url, result in self._results.items()},
-            "stats": {"scan_time_VirusTotal": self._scan_time},
-        }
+    def generate_report(self) -> SubReport:
+        """
+        Method responsible for generating the SubReport from the VirusTotal scan.
+
+        Raises
+        ------
+        ValueError
+            Raises when there is no results to be processed.
+
+        Returns
+        -------
+        `SubReport`
+            SubReport from the VirusTotal scan.
+
+        """
+        if not (self._results and self._scan_time):
+            raise ValueError("Report generating suspended - lack of results to be processed.")
+        return SubReport(self.__class__.__name__, self._results, [self._scan_time])
