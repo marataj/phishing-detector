@@ -15,7 +15,7 @@ from urllib.parse import urlparse
 from aiohttp import ClientSession, ClientTimeout
 
 from source.detector.report import Report, SubReport, generate_report
-from source.detector.scanners.google_safe_browsing_scanner import GSBScanner
+from source.detector.scanners.google_safe_browsing_api_scanner import GSBAPIScanner
 from source.detector.scanners.scanner import Scanner
 from source.detector.scanners.virus_total_scanner import VirusTotalScanner
 from source.detector.scanners.website_status_scanner import WebsiteStatusScanner
@@ -37,7 +37,7 @@ class Detector:
         Initialization of the Detector instance.
 
         """
-        self._supported_scanners = [VirusTotalScanner, GSBScanner, WebsiteStatusScanner]
+        self._supported_scanners = [VirusTotalScanner, GSBAPIScanner, WebsiteStatusScanner]
         self._global_session_timeout = ClientTimeout(10)
 
     def _validate_input(self, urls: list[str]) -> list[str]:

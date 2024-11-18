@@ -1,11 +1,11 @@
 #  ---------------------------------------------------------------------------------------------------------------------
-# Name:             detector.scanners.google_safe_browsing_scanner
+# Name:             detector.scanners.google_safe_browsing_api_scanner
 # Created By :      marataj
 # Created Date:     2024-11-13
 #  ---------------------------------------------------------------------------------------------------------------------
 
 """
-Module containing implementation of the Google Safe Browsing scanner.
+Module containing implementation of the Google Safe Browsing API scanner.
 
 """
 
@@ -20,10 +20,10 @@ from source.detector.report import IsPhishingResult, ScanTime, SubReport
 from source.detector.scanners.scanner import Scanner
 from source.settings import GSB_API_KEY
 
-__all__ = ["GSBScanner"]
+__all__ = ["GSBAPIScanner"]
 
 
-class GSBScanner(Scanner):
+class GSBAPIScanner(Scanner):
     """
     Class responsible for scanning the URLs with using Google Safe Browsing API v4.
 
@@ -118,7 +118,7 @@ class GSBScanner(Scanner):
             self._api_url, headers={"Content-Type": "application/json"}, data=self._prepare_request_payload()
         ) as response:
             if response.status != HTTPStatus.OK:
-                raise HTTPException(f"Google Safe Browsing: Unexpected response status: {HTTPStatus(response.status)}")
+                raise HTTPException(f"Google Safe Browsing API: Unexpected response status: {HTTPStatus(response.status)}")
 
             body = await response.json()
             return body
