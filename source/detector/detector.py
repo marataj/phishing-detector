@@ -19,6 +19,7 @@ from source.detector.scanners.google_safe_browsing_api_scanner import GSBAPIScan
 from source.detector.scanners.scanner import Scanner
 from source.detector.scanners.virus_total_scanner import VirusTotalScanner
 from source.detector.scanners.website_status_scanner import WebsiteStatusScanner
+from source.detector.scanners.chrome_safe_browsing_scanner import ChromeSafeBrowsingScanner
 
 __all__ = ["Detector"]
 
@@ -32,12 +33,21 @@ class Detector:
     class ValidationError(Exception):
         pass
 
-    def __init__(self):
+    def __init__(self, chrome_sb_scanner_enabled: bool = False):
         """
         Initialization of the Detector instance.
 
+        Parameters
+        ----------
+        chrome_sb_scanner_enabled: bool, default False
+            Flag enabling using the GoogleSafeBrowsingScanner. Due to potential damage, the scan must be enabled
+            consciously.
+
         """
         self._supported_scanners = [VirusTotalScanner, GSBAPIScanner, WebsiteStatusScanner]
+        if chrome_sb_scanner_enabled:
+            self._supported_scanners.append(ChromeSafeBrowsingScanner)
+
         self._global_session_timeout = ClientTimeout(10)
 
     def _validate_input(self, urls: list[str]) -> list[str]:
@@ -73,7 +83,7 @@ class Detector:
 
     async def _scan_urls(self, scanners: list[Scanner]) -> None:
         """
-        Asynchronous methode which starts scanning using given scanners instances.
+        Asynchronous method which starts scanning using given scanners instances.
 
         Parameters
         ----------

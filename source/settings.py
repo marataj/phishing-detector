@@ -15,5 +15,7 @@ from pathlib import Path
 env_path = Path(__file__).resolve().parents[1] / '.env'
 load_dotenv(env_path)
 
-VIRUS_TOTAL_API_KEY = os.getenv("VIRUS_TOTAL_API_KEY")
-GSB_API_KEY = os.getenv("GSB_API_KEY")
+VIRUS_TOTAL_API_KEY = os.getenv("VIRUS_TOTAL_API_KEY") or None
+GSB_API_KEY = os.getenv("GSB_API_KEY") or None
+CHROME_PATH = os.getenv("CHROME_PATH") or None
+CHROME_USER_DATA_DIR = os.getenv("CHROME_USER_DATA_DIR") or None

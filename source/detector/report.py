@@ -14,17 +14,33 @@ import json
 from dataclasses import asdict, dataclass, field
 
 __all__ = [
+    "ChromeSafeBrowsingStats",
     "AliveStats",
     "ScanTime",
     "Stats",
     "IsPhishingResult",
     "IsAliveResult",
+    "ChromeSafeBrowsingResult",
     "URLResult",
     "Report",
     "SubReport",
     "generate_report",
     "report_dict_factory",
 ]
+
+
+@dataclass
+class ChromeSafeBrowsingStats:
+    """
+    Class represents statistics related to Chrome Safebrowsing scan. Chows number and percentage value of websited that
+    were blocked by Chrome with and without safebrowsing enabled.
+
+    """
+
+    no_sb_blocked_number: int
+    no_sb_blocked_percentage: float
+    sb_blocked_number: int
+    sb_blocked_percentage: float
 
 
 @dataclass
@@ -58,15 +74,19 @@ class Stats:
     """
 
     sub_scans_time: list[ScanTime]
-    alive_stats: AliveStats
-    scan_time: datetime.timedelta = field(init=False)
+    alive_stats: AliveStats = None
+    chrome_safebrowsing: ChromeSafeBrowsingStats = None
+    scan_time: datetime.timedelta | None = field(init=False)
 
     def __post_init__(self):
         """
         Assigns longer scann time to the overall scanning time.
 
         """
-        self.scan_time = max([sub_time.scann_time for sub_time in self.sub_scans_time])
+        try:
+            self.scan_time = max([sub_time.scann_time for sub_time in self.sub_scans_time])
+        except ValueError:
+            self.scan_time = None
 
 
 @dataclass
@@ -89,6 +109,18 @@ class IsAliveResult:
 
     is_alive: bool
     response_code: int
+
+
+@dataclass
+class ChromeSafeBrowsingResult:
+    """
+    Class represents the verdict of Chrome Safebrowsing scanner, containing information if the website was detected by
+    Chrome browser with safebrowsing enabled and without it.
+
+    """
+
+    no_safebrowsing: IsPhishingResult
+    safebrowsing: IsPhishingResult
 
 
 @dataclass
@@ -137,8 +169,8 @@ class SubReport:
     """
 
     scanner_name: str
-    url_results: dict[str, IsPhishingResult | IsAliveResult]
-    stats: list[ScanTime | AliveStats]
+    url_results: dict[str, IsPhishingResult | IsAliveResult | ChromeSafeBrowsingResult]
+    stats: list[ScanTime | AliveStats | ChromeSafeBrowsingStats]
 
 
 def generate_report(sub_reports: list[SubReport], urls: list[str]) -> Report:
@@ -164,22 +196,28 @@ def generate_report(sub_reports: list[SubReport], urls: list[str]) -> Report:
         is_alive = None
         for sub_report in sub_reports:
             url_result = sub_report.url_results[url]
-            if isinstance(url_result, IsPhishingResult):
+            if isinstance(url_result, ChromeSafeBrowsingResult):
+                is_phishing_sub_results.append(url_result.no_safebrowsing)
+                is_phishing_sub_results.append(url_result.safebrowsing)
+            elif isinstance(url_result, IsPhishingResult):
                 is_phishing_sub_results.append(url_result)
             elif isinstance(url_result, IsAliveResult):
                 is_alive = url_result
         url_results.append(URLResult(url, is_alive, is_phishing_sub_results))
 
     sub_scans_time = []
-    alive_status = None
-
+    alive_stats = None
+    chrome_stats = None
     for sub_report in sub_reports:
         for stat in sub_report.stats:
             if isinstance(stat, ScanTime):
                 sub_scans_time.append(stat)
             elif isinstance(stat, AliveStats):
-                alive_status = stat
-    stats = Stats(sub_scans_time, alive_status)
+                alive_stats = stat
+            elif isinstance(stat, ChromeSafeBrowsingStats):
+                chrome_stats = stat
+
+    stats = Stats(sub_scans_time, alive_stats, chrome_stats)
 
     return Report(url_results, stats)
 
