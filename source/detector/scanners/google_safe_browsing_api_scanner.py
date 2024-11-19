@@ -86,11 +86,9 @@ class GSBAPIScanner(Scanner):
 
         """
         results = {url: False for url in self.url_list}
-        if "matches" not in resp_body:
-            return
-
-        for match in resp_body["matches"]:
-            results[match["threat"]["url"]] = True
+        if "matches" in resp_body:
+            for match in resp_body["matches"]:
+                results[match["threat"]["url"]] = True
 
         self._results = {url: IsPhishingResult(self.__class__.__name__, result) for url, result in results.items()}
 
