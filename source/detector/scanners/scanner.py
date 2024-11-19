@@ -12,7 +12,7 @@ Module containing the abstract class defining the basic interface of each scanne
 from abc import ABC, abstractmethod
 
 from aiohttp import ClientSession
-from detector.report import SubReport
+from source.detector.report import SubReport
 
 __all__ = ["Scanner"]
 

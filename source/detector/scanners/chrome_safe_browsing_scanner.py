@@ -38,6 +38,11 @@ class ChromeSafeBrowsingScanner(Scanner):
         """
         Initializes the scanner instance.
 
+        Raises
+        ------
+        AttributeError
+            Raises when lack of all the required attributes.
+
         Parameters
         ----------
         url_list : `list` [`str`]
@@ -47,6 +52,9 @@ class ChromeSafeBrowsingScanner(Scanner):
         super().__init__(url_list)
         self._chrome_path = CHROME_PATH
         self._user_data_dir = CHROME_USER_DATA_DIR
+        if not all([self._chrome_path, self._user_data_dir]):
+            AttributeError("Lack of required attribute. Both CHROME_PATH and CHROME_USER_DATA_DIR are required.")
+
         self._results: dict[str, ChromeSafeBrowsingResult] | None = None
         self._scan_time: ScanTime | None = None
         self._sb_blocked_number: int | None = None
@@ -165,6 +173,12 @@ class ChromeSafeBrowsingScanner(Scanner):
         """
         The main scanning method. It's responsible for creating the Playwright instance, running the scans in both
         safebrowsing and no safebrowsing contexts, ordering the scanning results.
+        TODO: turn off browser GUI displaying without using headless=True
+
+        Raises
+        ------
+        `RuntimeError`
+            Raises when the context passed to the scanner is manually opened in the browser.
 
         Returns
         -------

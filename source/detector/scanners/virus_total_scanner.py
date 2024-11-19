@@ -24,18 +24,30 @@ from source.settings import VIRUS_TOTAL_API_KEY
 __all__ = ["VirusTotalScanner"]
 
 
+class VirusTotalApiError(Exception):
+    """
+    Exception represents API errors.
+
+    """
+    pass
+
+
 class VirusTotalScanner(Scanner):
     """
     Class responsible for scanning the URLs with using VirusTotal API.
 
     """
-
     URLScanID = namedtuple("URLScanID", "url, id")
     URLScanResult = namedtuple("URLScanResult", "url, result")
 
     def __init__(self, url_list: list[str]) -> None:
         """
         Initializes the scanner instance.
+
+        Raises
+        ------
+        AttributeError
+            Raises when lack of API key detected.
 
         Parameters
         ----------
@@ -45,8 +57,11 @@ class VirusTotalScanner(Scanner):
         """
         super().__init__(url_list)
         self.__api_key = VIRUS_TOTAL_API_KEY
+        if not self.__api_key:
+            raise AttributeError("Lack of VirusTotal API KEY.")
         self._api_url = "https://www.virustotal.com/api/v3/"
-        self._retry_counter = 3  # TODO: changed to 3 due to tests on the free API version - to be changed to 5
+        self._retry_counter = 5
+        self._retry_delay_s = 20
         self._results: dict[str, IsPhishingResult] | None = None
         self._scan_time: ScanTime | None = None
         self._phishing_threshold = 3
@@ -64,9 +79,10 @@ class VirusTotalScanner(Scanner):
 
         Raises
         ------
-        `HTTPException`
+        HTTPException
             Raises after unexpected status of API response.
-
+        VirusTotalAPIException
+            Raises when number of request was exceeded.
         Returns
         -------
         `URLScanID`
@@ -78,6 +94,8 @@ class VirusTotalScanner(Scanner):
         ) as response:
             if response.status != HTTPStatus.OK:
                 raise HTTPException(f"VirusTotal: Unexpected response status: {HTTPStatus(response.status)}")
+            if response.status == HTTPStatus.TOO_MANY_REQUESTS:
+                raise VirusTotalApiError("Number of requests per account was exceeded. Check VirusTotal account.")
 
             body = await response.json()
             return self.URLScanID(url, body["data"]["id"])
@@ -117,6 +135,8 @@ class VirusTotalScanner(Scanner):
             Raises after unexpected status of the API response.
         ValueError
             Raises after exceeding the maximum number of attempts of get requests.
+        VirusTotalAPIException
+            Raises when number of request was exceeded.
 
         Returns
         -------
@@ -133,14 +153,16 @@ class VirusTotalScanner(Scanner):
                     raise HTTPException(
                         f"Unexpected response status of VirusTotal response: {HTTPStatus(response.status)}"
                     )
-                #  TODO: is there a better way to check if the analysis is ready ? (like dedicated endpoint)
+                if response.status == HTTPStatus.TOO_MANY_REQUESTS:
+                    raise VirusTotalApiError("Number of requests per account was exceeded. Check VirusTotal account.")
+
                 body = await response.json()
 
                 if body["data"]["attributes"]["status"] == "completed":
                     malicious_num = int(body["data"]["attributes"]["stats"]["malicious"])
                     return self.URLScanResult(scann_id.url, self._eval_is_phishing(malicious_num))
 
-                await asyncio.sleep(20)  # TODO: changed to 20 due to test on free API - to be changed to 0.1
+                await asyncio.sleep(self._retry_delay_s)
 
         raise ValueError("Maximum number of attempts to get the TotalVirus scan result exceeded.")
 
@@ -194,7 +216,6 @@ class VirusTotalScanner(Scanner):
         """
         start_time = datetime.now()
         scan_ids = await self._scan_urls(session)
-        await asyncio.sleep(3)  # TODO: wait 3 s due to the tests on the free API, to be removed
         results = await self._get_results(session, scan_ids)
         self._results = {res.url: IsPhishingResult(self.__class__.__name__, res.result) for res in results}
         self._scan_time = ScanTime(self.__class__.__name__, datetime.now() - start_time)

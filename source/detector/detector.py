@@ -100,7 +100,6 @@ class Detector:
         asyncio.run(self._scan_urls(scanners))
 
         reports = [scanner.generate_report() for scanner in scanners]
-        print(reports)
         return self._create_report(reports, url_list)
 
     @staticmethod

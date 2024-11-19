@@ -11,7 +11,8 @@ Module related with data collection feature.
 
 import io
 from datetime import datetime, timedelta
-
+from http import HTTPStatus
+from http.client import HTTPException
 import pandas as pd
 import requests
 
@@ -51,6 +52,11 @@ class DataCollector:
         url_number: `int`
             Number of URLs to be collected.
 
+        Raises
+        ------
+        HTTPException
+            Raises when response with unexpected code was received.
+
         Returns
         -------
         `list` [`str`]
@@ -58,7 +64,11 @@ class DataCollector:
 
         """
         if not self._openphish_url or datetime.now() - self._openphish_last_update > self._openphish_update_freq:
-            self._openphish_urls = requests.get(url=self._openphish_url).text.split("\n")
+            response = requests.get(url=self._openphish_url)
+            if response.status_code != HTTPStatus.OK:
+                HTTPException(f"Unexpected response code from OpenPhish: {response.status_code}")
+
+            self._openphish_urls = response.text.split("\n")
             self._openphish_last_update = datetime.now()
 
         return self._openphish_urls[:url_number]
@@ -74,6 +84,11 @@ class DataCollector:
         url_number: `int`
             Number of URLs to be collected.
 
+        Raises
+        ------
+        HTTPException
+            Raises when response with unexpected code was received.
+
         Returns
         -------
         `list` [`str`]
@@ -81,9 +96,12 @@ class DataCollector:
 
         """
         if not self._phishstats_urls or datetime.now() - self._phishstats_last_update > self._phishstats_update_freq:
-            r = requests.get(url=self._phishstats_url)
+            response = requests.get(url=self._phishstats_url)
+            if response.status_code != HTTPStatus.OK:
+                HTTPException(f"Unexpected response code from PhishState: {response.status_code}")
+
             self._phishstats_urls = pd.read_csv(
-                io.StringIO(r.text), skiprows=10, names=["Date", "Score", "URL", "IP"]
+                io.StringIO(response.text), skiprows=10, names=["Date", "Score", "URL", "IP"]
             ).URL.tolist()
             self._phishstats_last_update = datetime.now()
 

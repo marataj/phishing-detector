@@ -22,18 +22,27 @@ from source.settings import GSB_API_KEY
 
 __all__ = ["GSBAPIScanner"]
 
+class GoogleSafeBrowsingApiError(Exception):
+    """
+    Exception represents API errors.
+
+    """
+    pass
+
 
 class GSBAPIScanner(Scanner):
     """
     Class responsible for scanning the URLs with using Google Safe Browsing API v4.
 
     """
-
-    # TODO: add handling of the exceptions from exceeding the free API limits
-
     def __init__(self, url_list: list[str]) -> None:
         """
         Initializes the scanner instance.
+
+        Raises
+        ------
+        AttributeError
+            Raises when lack of API key detected.
 
         Parameters
         ----------
@@ -43,6 +52,8 @@ class GSBAPIScanner(Scanner):
         """
         super().__init__(url_list)
         self.__api_key = GSB_API_KEY
+        if not self.__api_key:
+            raise AttributeError("Lack of VirusTotal API KEY.")
         self._api_url = f"https://safebrowsing.googleapis.com/v4/threatMatches:find?key={self.__api_key}"
         self._results: dict[str, IsPhishingResult] | None = None
         self._scan_time: ScanTime | None = None
@@ -103,8 +114,10 @@ class GSBAPIScanner(Scanner):
 
         Raises
         ------
-        `HTTPException`
+        HTTPException
             Raises after unexpected status of API response.
+        GoogleSafeBrowsingApiError
+            Raises after exceeding the number of request per account.
 
         Returns
         -------
@@ -117,6 +130,8 @@ class GSBAPIScanner(Scanner):
         ) as response:
             if response.status != HTTPStatus.OK:
                 raise HTTPException(f"Google Safe Browsing API: Unexpected response status: {HTTPStatus(response.status)}")
+            if response.status == HTTPStatus.TOO_MANY_REQUESTS:
+                raise GoogleSafeBrowsingApiError("Number of requests per account was exceeded. Check Google account.")
 
             body = await response.json()
             return body
