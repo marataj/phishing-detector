@@ -97,7 +97,7 @@ class IsPhishingResult:
     """
 
     scanner_name: str
-    is_phishing: bool
+    is_phishing: bool | None
 
 
 @dataclass
@@ -133,13 +133,17 @@ class URLResult:
     url: str
     is_alive: IsAliveResult
     is_phishing_sub_results: list[IsPhishingResult]
-    is_phishing: bool = field(init=False)
+    is_phishing: bool | None = field(init=False)
 
     def __post_init__(self):
         """
         Assigns an overall is_phishing result, as a logical disjunction of sub-results (results of each scanner).
 
         """
+        if not self.is_phishing_sub_results:
+            self.is_phishing = None
+            return
+
         self.is_phishing = any([sub_res.is_phishing for sub_res in self.is_phishing_sub_results])
 
 

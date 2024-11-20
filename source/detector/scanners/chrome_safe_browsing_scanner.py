@@ -22,6 +22,7 @@ from playwright.async_api import (BrowserContext, Page, Playwright,
 from source.detector.report import (ChromeSafeBrowsingResult,
                                     ChromeSafeBrowsingStats, IsPhishingResult,
                                     ScanTime, SubReport)
+from source.detector.scanners.website_status_scanner import DEAD_RESPONSE_CODES
 from source.detector.scanners.scanner import Scanner
 from source.settings import CHROME_PATH, CHROME_USER_DATA_DIR
 
@@ -60,7 +61,7 @@ class ChromeSafeBrowsingScanner(Scanner):
         self._sb_blocked_number: int | None = None
         self._no_sb_blocked_number: int | None = None
 
-    async def _scan_url(self, page: Page, url: str) -> bool:
+    async def _scan_url(self, page: Page, url: str) -> bool | None:
         """
         method responsible for opening the appropriate page on the tab and checking if it is blocked.
 
@@ -73,19 +74,27 @@ class ChromeSafeBrowsingScanner(Scanner):
 
         Returns
         -------
-        `bool`
-            True if the website was blocked, False otherwise.
+        `bool` | `None`
+            True if the website was blocked, False otherwise. Returns None when the website is unavailable.
 
         """
         is_blocked = False
         try:
-            await page.goto(url)
-        except PlaywrightError:
-            # Chrome browser blocked the website content
-            is_blocked = True
+            response = await page.goto(url)
+            if response.status in DEAD_RESPONSE_CODES:
+                is_blocked = None
+
+        except PlaywrightError as e:
+            # Website was not loaded correctly
+            is_blocked = None
+            if "net::ERR_BLOCKED_BY_CLIENT" in e.message:
+                # Chrome browser blocked the website content
+                is_blocked = True
+
         except Exception:
-            # The website was not loaded correctly
-            pass
+            # Exception raised during loading the website
+            is_blocked = None
+
         finally:
             await page.close()
             return is_blocked
