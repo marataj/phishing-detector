@@ -108,7 +108,7 @@ class IsAliveResult:
     """
 
     is_alive: bool
-    response_code: int
+    response_code: int | None
 
 
 @dataclass
@@ -173,19 +173,19 @@ class SubReport:
     """
 
     scanner_name: str
-    url_results: dict[str, IsPhishingResult | IsAliveResult | ChromeSafeBrowsingResult]
+    url_results: list[IsPhishingResult | IsAliveResult | ChromeSafeBrowsingResult]
     stats: list[ScanTime | AliveStats | ChromeSafeBrowsingStats]
 
 
-def generate_report(sub_reports: list[SubReport], urls: list[str]) -> Report:
+def generate_report(sub_reports: list[SubReport], scanned_urls: list[str]) -> Report:
     """
-    Function responsible for generating the final report based on the sub-reports from detector's scanners.
+    Function responsible for generating the final report based on the sub-reports from particular scanners.
 
     Parameters
     ----------
     sub_reports: `list` [`SubReport`]
         List containing sub-reports from scan.
-    urls: `list` [`str`]
+    scanned_urls: `list` [`str`]
         List containing urls used in the scan.
 
     Returns
@@ -195,19 +195,18 @@ def generate_report(sub_reports: list[SubReport], urls: list[str]) -> Report:
 
     """
     url_results = []
-    for url in urls:
+    for idx in range(len(scanned_urls)):
         is_phishing_sub_results = []
         is_alive = None
         for sub_report in sub_reports:
-            url_result = sub_report.url_results[url]
+            url_result = sub_report.url_results[idx]
             if isinstance(url_result, ChromeSafeBrowsingResult):
-                is_phishing_sub_results.append(url_result.no_safebrowsing)
-                is_phishing_sub_results.append(url_result.safebrowsing)
+                is_phishing_sub_results.extend([url_result.no_safebrowsing, url_result.safebrowsing])
             elif isinstance(url_result, IsPhishingResult):
                 is_phishing_sub_results.append(url_result)
             elif isinstance(url_result, IsAliveResult):
                 is_alive = url_result
-        url_results.append(URLResult(url, is_alive, is_phishing_sub_results))
+        url_results.append(URLResult(scanned_urls[idx], is_alive, is_phishing_sub_results))
 
     sub_scans_time = []
     alive_stats = None

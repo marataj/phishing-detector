@@ -10,7 +10,6 @@ Module containing implementation of the VirusTotal scanner.
 """
 
 import asyncio
-from collections import namedtuple
 from datetime import datetime
 from http import HTTPStatus
 from http.client import HTTPException
@@ -29,6 +28,7 @@ class VirusTotalApiError(Exception):
     Exception represents API errors.
 
     """
+
     pass
 
 
@@ -37,8 +37,6 @@ class VirusTotalScanner(Scanner):
     Class responsible for scanning the URLs with using VirusTotal API.
 
     """
-    URLScanID = namedtuple("URLScanID", "url, id")
-    URLScanResult = namedtuple("URLScanResult", "url, result")
 
     def __init__(self, url_list: list[str]) -> None:
         """
@@ -62,11 +60,11 @@ class VirusTotalScanner(Scanner):
         self._api_url = "https://www.virustotal.com/api/v3/"
         self._retry_counter = 5
         self._retry_delay_s = 20
-        self._results: dict[str, IsPhishingResult] | None = None
+        self._results: list[IsPhishingResult] | None = None
         self._scan_time: ScanTime | None = None
         self._phishing_threshold = 3
 
-    async def _scan_single_url(self, session: ClientSession, url: str) -> URLScanID:
+    async def _scan_single_url(self, session: ClientSession, url: str) -> str:
         """
         Asynchronous method sending scan request for single URL.
 
@@ -83,10 +81,11 @@ class VirusTotalScanner(Scanner):
             Raises after unexpected status of API response.
         VirusTotalAPIException
             Raises when number of request was exceeded.
+
         Returns
         -------
-        `URLScanID`
-            Object containing url and ID of the scann
+        `str`
+            Scan ID of scanned URL.
 
         """
         async with session.post(
@@ -98,9 +97,9 @@ class VirusTotalScanner(Scanner):
                 raise VirusTotalApiError("Number of requests per account was exceeded. Check VirusTotal account.")
 
             body = await response.json()
-            return self.URLScanID(url, body["data"]["id"])
+            return body["data"]["id"]
 
-    async def _scan_urls(self, session: ClientSession) -> list[URLScanID]:
+    async def _scan_urls(self, session: ClientSession) -> list[str]:
         """
         Method responsible for sending asynchronous scan requests for URLs.
 
@@ -111,14 +110,14 @@ class VirusTotalScanner(Scanner):
 
         Returns
         -------
-        `list` [`URLScanID`]
-            List of IDs of scans on the API side.
+        `list` [`str`]
+            List of scan IDs of scans on the API side.
 
         """
         tasks = [self._scan_single_url(session, url) for url in self.url_list]
         return await asyncio.gather(*tasks)
 
-    async def _get_single_result(self, session: ClientSession, scann_id: URLScanID) -> URLScanResult:
+    async def _get_single_result(self, session: ClientSession, scan_id: str) -> bool:
         """
         Method sending get result request for single URL.
 
@@ -126,8 +125,8 @@ class VirusTotalScanner(Scanner):
         ----------
         session : `ClientSession`
             AioHTTP session for asynchronous HTTP requests.
-        scann_id : `URLScanID`
-            Object containing URL and ID of the scann corresponding to the requested analysis results.
+        scan_id : `str`
+            Object containing ID of the scan corresponding to the requested analysis results.
 
         Raises
         ------
@@ -140,14 +139,14 @@ class VirusTotalScanner(Scanner):
 
         Returns
         -------
-        `URLScanResult`
-            Object containing scanned URL and scanning result respectively.
+        `bool`
+            Scan result - True if the URL shall be considered as phishing, False otherwise.
 
         """
         # TODO: This method is too complex - must be split and simplified
         for _ in range(self._retry_counter):
             async with session.get(
-                url=f"{self._api_url}analyses/{scann_id.id}", headers={"x-apikey": self.__api_key}
+                url=f"{self._api_url}analyses/{scan_id}", headers={"x-apikey": self.__api_key}
             ) as response:
                 if response.status != HTTPStatus.OK:
                     raise HTTPException(
@@ -160,13 +159,13 @@ class VirusTotalScanner(Scanner):
 
                 if body["data"]["attributes"]["status"] == "completed":
                     malicious_num = int(body["data"]["attributes"]["stats"]["malicious"])
-                    return self.URLScanResult(scann_id.url, self._eval_is_phishing(malicious_num))
+                    return self._eval_is_phishing(malicious_num)
 
                 await asyncio.sleep(self._retry_delay_s)
 
         raise ValueError("Maximum number of attempts to get the TotalVirus scan result exceeded.")
 
-    async def _get_results(self, session: ClientSession, scan_ids: list[URLScanID]) -> list[URLScanResult]:
+    async def _get_results(self, session: ClientSession, scan_ids: list[str]) -> list[bool]:
         """
         Method responsible for sending asynchronous requests in order to retrieving results from URL scanning.
 
@@ -175,13 +174,13 @@ class VirusTotalScanner(Scanner):
         session : `ClientSession`
             AioHTTP session for asynchronous HTTP requests.
 
-        scan_ids : `list` [`URLScanID`]
-            List with `URLScanID` objects, that contain the URL and ID of the scan on the API side.
+        scan_ids : `list` [`str`]
+            List of scan ID of each URL.
 
         Returns
         -------
-        `list` [`URLScanResult`]
-            List with `URLScanResult` objects, that contain the URL and the result from its scan.
+        `list` [`bool`]
+            List containing boolean results if URL is considered as phishing, per each URL.
 
         """
         tasks = [self._get_single_result(session, scan_id) for scan_id in scan_ids]
@@ -217,7 +216,7 @@ class VirusTotalScanner(Scanner):
         start_time = datetime.now()
         scan_ids = await self._scan_urls(session)
         results = await self._get_results(session, scan_ids)
-        self._results = {res.url: IsPhishingResult(self.__class__.__name__, res.result) for res in results}
+        self._results = [IsPhishingResult(self.__class__.__name__, res) for res in results]
         self._scan_time = ScanTime(self.__class__.__name__, datetime.now() - start_time)
 
     def generate_report(self) -> SubReport:

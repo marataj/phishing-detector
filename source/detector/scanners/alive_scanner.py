@@ -12,10 +12,9 @@ Module containing implementation of the Alive Scanner.
 import asyncio
 from datetime import datetime
 from http import HTTPStatus
-from typing import Tuple
 
 from aiohttp import ClientSession
-from aiohttp.client_exceptions import ClientConnectorError
+from aiohttp.client_exceptions import ClientError
 
 from source.detector.report import (AliveStats, IsAliveResult, ScanTime,
                                     SubReport)
@@ -41,7 +40,7 @@ class AliveScanner(Scanner):
 
         """
         super().__init__(url_list)
-        self._results: dict[str, IsAliveResult] | None = None
+        self._results: list[IsAliveResult] | None = None
         self._scan_time: ScanTime | None = None
         self.request_timeout = 3
         self._dead_codes = [
@@ -78,7 +77,7 @@ class AliveScanner(Scanner):
 
         return is_alive
 
-    async def _scan_url(self, session: ClientSession, url: str) -> Tuple[str, bool, int | None]:
+    async def _scan_url(self, session: ClientSession, url: str) -> IsAliveResult:
         """
         Method responsible for scanning of the single URL.
 
@@ -91,19 +90,19 @@ class AliveScanner(Scanner):
 
         Returns
         -------
-        `Tuple` [`str`, `bool`, `int` | `None`]
-            Tuple containing scanned URL, evaluation result and response status code respectively. If TimeoutError or
-            ClientConnectorError was raised, the response code is set to None.
+        `IsAliveResult`
+            Result object containing evaluation result and response code. If TimeoutError or
+            ClientError were raised, the response code is set to None.
 
         """
         try:
             async with session.get(url, timeout=self.request_timeout) as response:
-                return url, self._evaluate_response_code(response.status), response.status
+                return IsAliveResult(self._evaluate_response_code(response.status), response.status)
 
-        except (asyncio.TimeoutError, ClientConnectorError):
-            return url, False, None
+        except (asyncio.TimeoutError, ClientError):
+            return IsAliveResult(False, None)
 
-    async def _scan_urls(self, session: ClientSession) -> dict[str, Tuple[bool, int | None]]:
+    async def _scan_urls(self, session: ClientSession) -> list[IsAliveResult]:
         """
         Method responsible for scanning URLs.
 
@@ -114,14 +113,12 @@ class AliveScanner(Scanner):
 
         Returns
         -------
-        TODO: adjust types to report types
-        `dict` [`str`, `Tuple`[`bool`, `int` | `None`]]
-            Dictionary with scanned URL as a key and Tuple containing scanning result and response code as a value.
+        `list` [`IsAliveResult`]
+            List of tuples containing scanning result per each scanner URL.
 
         """
         tasks = [self._scan_url(session, url) for url in self.url_list]
-        results = await asyncio.gather(*tasks)
-        return {url: IsAliveResult(is_alive, status_code) for url, is_alive, status_code in results}
+        return await asyncio.gather(*tasks)
 
     async def run(self, session: ClientSession) -> None:
         """
@@ -153,7 +150,7 @@ class AliveScanner(Scanner):
 
         """
 
-        alive_number = len(list(filter(lambda x: x.is_alive is True, self._results.values())))
+        alive_number = len(list(filter(lambda x: x.is_alive is True, self._results)))
         alive_percentage = alive_number / len(self.url_list) * 100
 
         if not (self._results and self._scan_time):

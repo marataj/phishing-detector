@@ -55,7 +55,7 @@ class ChromeSafeBrowsingScanner(Scanner):
         if not all([self._chrome_path, self._user_data_dir]):
             AttributeError("Lack of required attribute. Both CHROME_PATH and CHROME_USER_DATA_DIR are required.")
 
-        self._results: dict[str, ChromeSafeBrowsingResult] | None = None
+        self._results: list[ChromeSafeBrowsingResult] | None = None
         self._scan_time: ScanTime | None = None
         self._sb_blocked_number: int | None = None
         self._no_sb_blocked_number: int | None = None
@@ -107,8 +107,8 @@ class ChromeSafeBrowsingScanner(Scanner):
         context: `BrowserContext`
             Browser context for opening the pages for each URL.
         mode: `Literal`
-            Determines the testing context the method is called in. "no_sb" means no safebrowsing enabled, "sb" means
-            safebrowsing enabled.
+            Determines the testing context the method is called in. "no_sb" means no safe browsing enabled, "sb" means
+            safe browsing enabled.
 
         Returns
         -------
@@ -163,7 +163,7 @@ class ChromeSafeBrowsingScanner(Scanner):
         Returns
         -------
         `list` [`IsPhishingResult`]
-            List of object containing information about scanning result in no safebrowsing context.
+            List of object containing information about scanning result in no safe browsing context.
 
         """
         browser = await playwright.chromium.launch(executable_path=self._chrome_path, headless=False)
@@ -175,7 +175,7 @@ class ChromeSafeBrowsingScanner(Scanner):
         self._no_sb_blocked_number = blocked_num
         return results
 
-    async def _scan(self) -> dict[str, ChromeSafeBrowsingResult]:
+    async def _scan(self) -> list[ChromeSafeBrowsingResult]:
         """
         The main scanning method. It's responsible for creating the Playwright instance, running the scans in both
         safebrowsing and no safebrowsing contexts, ordering the scanning results.
@@ -188,8 +188,8 @@ class ChromeSafeBrowsingScanner(Scanner):
 
         Returns
         -------
-        `dict` [`str`, `ChromeSafeBrowsingResult`]
-            Dictionary containing ChromeSafeBrowsingResult objects as a values per each scanned URL as a keys.
+        `list` [`ChromeSafeBrowsingResult`]
+            List containing ChromeSafeBrowsingResult objects per each scanned URL.
 
         """
         async with async_playwright() as playwright:
@@ -198,12 +198,10 @@ class ChromeSafeBrowsingScanner(Scanner):
                 results_sb = await self._scan_safebrowsing(playwright)
             except TargetClosedError:
                 raise RuntimeError(
-                    "Chrome browser instance with the same context as passed to the scanner must be closed during the test."
+                    "Chrome browser instance with the same context as passed to the scanner must be"
+                    "closed during the test."
                 )
-            return {
-                url: ChromeSafeBrowsingResult(no_sb, sb)
-                for url, no_sb, sb in zip(self.url_list, results_no_sb, results_sb)
-            }
+            return [ChromeSafeBrowsingResult(no_sb, sb) for no_sb, sb in zip(results_no_sb, results_sb)]
 
     async def run(self, session: ClientSession) -> None:
         """

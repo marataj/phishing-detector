@@ -28,6 +28,7 @@ class GoogleSafeBrowsingApiError(Exception):
     Exception represents API errors.
 
     """
+
     pass
 
 
@@ -36,6 +37,7 @@ class GoogleSafeBrowsingAPIScanner(Scanner):
     Class responsible for scanning the URLs with using Google Safe Browsing API v4.
 
     """
+
     def __init__(self, url_list: list[str]) -> None:
         """
         Initializes the scanner instance.
@@ -56,7 +58,7 @@ class GoogleSafeBrowsingAPIScanner(Scanner):
         if not self.__api_key:
             raise AttributeError("Lack of VirusTotal API KEY.")
         self._api_url = f"https://safebrowsing.googleapis.com/v4/threatMatches:find?key={self.__api_key}"
-        self._results: dict[str, IsPhishingResult] | None = None
+        self._results: list[IsPhishingResult] | None = None
         self._scan_time: ScanTime | None = None
 
     def _prepare_request_payload(self) -> str:
@@ -102,7 +104,7 @@ class GoogleSafeBrowsingAPIScanner(Scanner):
             for match in resp_body["matches"]:
                 results[match["threat"]["url"]] = True
 
-        self._results = {url: IsPhishingResult(self.__class__.__name__, result) for url, result in results.items()}
+        self._results = [IsPhishingResult(self.__class__.__name__, result) for result in results.values()]
 
     async def _scan_urls(self, session: ClientSession) -> dict:
         """
@@ -130,7 +132,9 @@ class GoogleSafeBrowsingAPIScanner(Scanner):
             self._api_url, headers={"Content-Type": "application/json"}, data=self._prepare_request_payload()
         ) as response:
             if response.status != HTTPStatus.OK:
-                raise HTTPException(f"Google Safe Browsing API: Unexpected response status: {HTTPStatus(response.status)}")
+                raise HTTPException(
+                    f"Google Safe Browsing API: Unexpected response status: {HTTPStatus(response.status)}"
+                )
             if response.status == HTTPStatus.TOO_MANY_REQUESTS:
                 raise GoogleSafeBrowsingApiError("Number of requests per account was exceeded. Check Google account.")
 
@@ -139,7 +143,6 @@ class GoogleSafeBrowsingAPIScanner(Scanner):
 
     async def run(self, session: ClientSession) -> None:
         """
-        TODO: verify correctness of all the docstrings
         Method that runs the scan of the URLs.
 
         Parameters
