@@ -79,9 +79,7 @@ class ChromeSafeBrowsingScanner(Scanner):
         """
         is_blocked = False
         try:
-            response = await page.goto(url)
-            if response.status in DEAD_RESPONSE_CODES:
-                is_blocked = None
+            await page.goto(url)
 
         except PlaywrightError as e:
             # Website was not loaded correctly

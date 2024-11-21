@@ -93,7 +93,6 @@ def perform_scan(args: argparse.Namespace) -> None:
     argparse.ArgumentTypeError
         Raises if validation of the parameters fails.
 
-
     """
     if (not any([args.input, args.auto_collect])) or all([args.input, args.auto_collect]):
         raise argparse.ArgumentTypeError(
