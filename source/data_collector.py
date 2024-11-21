@@ -1,5 +1,5 @@
 #  ---------------------------------------------------------------------------------------------------------------------
-# Name:             data_collector
+# Name:             source.data_collector
 # Created By :      marataj
 # Created Date:     2024-11-17
 #  ---------------------------------------------------------------------------------------------------------------------
@@ -13,6 +13,8 @@ import io
 from datetime import datetime, timedelta
 from http import HTTPStatus
 from http.client import HTTPException
+from typing import Literal
+
 import pandas as pd
 import requests
 
@@ -107,7 +109,7 @@ class DataCollector:
 
         return self._phishstats_urls[:url_number]
 
-    def get_urls(self, url_number: int) -> list[str]:
+    def get_urls(self, url_number: int, source: Literal["openphish", "pishstats"] | None = None) -> list[str]:
         """
         Collecting data from both available data sources and returns combined url list.
 
@@ -115,6 +117,13 @@ class DataCollector:
         ----------
         url_number: `int`
             Number of URLs to be collected.
+        source: `Literal` [`str`] | None, default None
+            Optional parameter determining source of data. If none, results are collected from all available sources.
+
+        Raises
+        ------
+        AttributeError
+            Raises when source parameter is invalid.
 
         Returns
         -------
@@ -122,4 +131,13 @@ class DataCollector:
             List of URLs.
 
         """
-        return [*self.get_urls_openphish(url_number//2), *self.get_urls_phishstats(url_number - url_number//2)]
+        if source and source not in ["openphish", "pishstats"]:
+            raise AttributeError(f"Invalid source: {source}")
+        if not source:
+            res = [*self.get_urls_openphish(url_number // 2), *self.get_urls_phishstats(url_number - url_number // 2)]
+        elif source == "openphish":
+            res = self.get_urls_openphish(url_number)
+        else:
+            res = self.get_urls_phishstats(url_number)
+
+        return res
