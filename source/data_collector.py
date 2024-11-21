@@ -109,7 +109,7 @@ class DataCollector:
 
         return self._phishstats_urls[:url_number]
 
-    def get_urls(self, url_number: int, source: Literal["openphish", "pishstats"] | None = None) -> list[str]:
+    def get_urls(self, url_number: int, source: Literal["openphish", "phishstats"] | None = None) -> list[str]:
         """
         Collecting data from both available data sources and returns combined url list.
 
@@ -131,7 +131,7 @@ class DataCollector:
             List of URLs.
 
         """
-        if source and source not in ["openphish", "pishstats"]:
+        if source and source not in ["openphish", "phishstats"]:
             raise AttributeError(f"Invalid source: {source}")
         if not source:
             res = [*self.get_urls_openphish(url_number // 2), *self.get_urls_phishstats(url_number - url_number // 2)]
