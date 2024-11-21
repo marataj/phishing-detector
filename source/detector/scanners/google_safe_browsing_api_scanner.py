@@ -20,7 +20,8 @@ from source.detector.report import IsPhishingResult, ScanTime, SubReport
 from source.detector.scanners.scanner import Scanner
 from source.settings import GSB_API_KEY
 
-__all__ = ["GSBAPIScanner"]
+__all__ = ["GoogleSafeBrowsingAPIScanner"]
+
 
 class GoogleSafeBrowsingApiError(Exception):
     """
@@ -30,7 +31,7 @@ class GoogleSafeBrowsingApiError(Exception):
     pass
 
 
-class GSBAPIScanner(Scanner):
+class GoogleSafeBrowsingAPIScanner(Scanner):
     """
     Class responsible for scanning the URLs with using Google Safe Browsing API v4.
 

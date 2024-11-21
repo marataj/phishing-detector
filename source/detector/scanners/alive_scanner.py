@@ -1,11 +1,11 @@
 #  ---------------------------------------------------------------------------------------------------------------------
-# Name:             source.detector.scanners.website_status_scanner
+# Name:             source.detector.scanners.alive_scanner
 # Created By :      marataj
 # Created Date:     2024-11-16
 #  ---------------------------------------------------------------------------------------------------------------------
 
 """
-Module containing implementation of the website status scanner.
+Module containing implementation of the Alive Scanner.
 
 """
 
@@ -21,10 +21,10 @@ from source.detector.report import (AliveStats, IsAliveResult, ScanTime,
                                     SubReport)
 from source.detector.scanners.scanner import Scanner
 
-__all__ = ["WebsiteStatusScanner"]
+__all__ = ["AliveScanner"]
 
 
-class WebsiteStatusScanner(Scanner):
+class AliveScanner(Scanner):
     """
     Scanner evaluating if website is alive or not.
 
@@ -139,7 +139,7 @@ class WebsiteStatusScanner(Scanner):
 
     def generate_report(self) -> SubReport:
         """
-        Method responsible for generating the SubReport from the website status scan.
+        Method responsible for generating the SubReport from the Alive Scanner scan.
 
         Raises
         ------
@@ -149,7 +149,7 @@ class WebsiteStatusScanner(Scanner):
         Returns
         -------
         `SubReport`
-            SubReport from the website status scan.
+            SubReport from the Alive Scanner.
 
         """
 

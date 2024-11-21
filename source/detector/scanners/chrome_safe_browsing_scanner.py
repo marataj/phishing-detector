@@ -5,7 +5,7 @@
 #  ---------------------------------------------------------------------------------------------------------------------
 
 """
-Module containing implementation of the Chrome Safe Browsing scanner using playwright.
+Module containing implementation of the Chrome Safe Browsing scanner using Playwright.
 
 """
 

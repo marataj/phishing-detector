@@ -15,10 +15,10 @@ from urllib.parse import urlparse
 from aiohttp import ClientSession, ClientTimeout
 
 from source.detector.report import Report, SubReport, generate_report
-from source.detector.scanners.google_safe_browsing_api_scanner import GSBAPIScanner
+from source.detector.scanners.google_safe_browsing_api_scanner import GoogleSafeBrowsingAPIScanner
 from source.detector.scanners.scanner import Scanner
 from source.detector.scanners.virus_total_scanner import VirusTotalScanner
-from source.detector.scanners.website_status_scanner import WebsiteStatusScanner
+from source.detector.scanners.alive_scanner import AliveScanner
 from source.detector.scanners.chrome_safe_browsing_scanner import ChromeSafeBrowsingScanner
 
 __all__ = ["Detector"]
@@ -44,7 +44,7 @@ class Detector:
             consciously.
 
         """
-        self._supported_scanners = [VirusTotalScanner, GSBAPIScanner, WebsiteStatusScanner]
+        self._supported_scanners = [VirusTotalScanner, GoogleSafeBrowsingAPIScanner, AliveScanner]
         if chrome_sb_scanner_enabled:
             self._supported_scanners.append(ChromeSafeBrowsingScanner)
 

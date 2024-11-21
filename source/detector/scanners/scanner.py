@@ -39,7 +39,7 @@ class Scanner(ABC):
     @abstractmethod
     async def run(self, session: ClientSession) -> None:
         """
-        Abstract method that runs the scan of the URLs. Each scanning shall implement its own logic, depending on the
+        Abstract method that runs the scan of the URLs. Each scanner shall implement its own logic, depending on the
         mechanism requirements.
 
         Parameters
@@ -52,12 +52,12 @@ class Scanner(ABC):
     @abstractmethod
     def generate_report(self) -> SubReport:
         """
-        Abstract method that generates the scanning report. Each scan shall implement its onw logic, depending on the
-        features it provides.
+        Abstract method that generates the scanning report. Each scanner shall implement its onw logic, depending on the
+        features provided.
 
         Returns
         -------
         `SubReport`
-            SubReport from the scan.
+            SubReport of the single scanner.
 
         """
