@@ -1,5 +1,5 @@
 #  ---------------------------------------------------------------------------------------------------------------------
-# Name:             detector.scanners.google_safe_browsing_api_scanner
+# Name:             source.detector.scanners.google_safe_browsing_api_scanner
 # Created By :      marataj
 # Created Date:     2024-11-13
 #  ---------------------------------------------------------------------------------------------------------------------

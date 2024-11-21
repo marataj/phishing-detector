@@ -1,5 +1,5 @@
 #  ---------------------------------------------------------------------------------------------------------------------
-# Name:             detector.scanners.chrome_safe_browsing_scanner
+# Name:             source.detector.scanners.chrome_safe_browsing_scanner
 # Created By :      marataj
 # Created Date:     2024-11-18
 #  ---------------------------------------------------------------------------------------------------------------------
