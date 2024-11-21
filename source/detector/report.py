@@ -37,10 +37,10 @@ class ChromeSafeBrowsingStats:
 
     """
 
-    no_sb_blocked_number: int
-    no_sb_blocked_percentage: float
-    sb_blocked_number: int
-    sb_blocked_percentage: float
+    no_sb_blocked_urls: int
+    no_sb_blocked_urls_pct: float
+    sb_blocked_urls: int
+    sb_blocked_urls_pct: float
 
 
 @dataclass
@@ -50,8 +50,8 @@ class AliveStats:
 
     """
 
-    alive_number: int
-    alive_percentage: float
+    alive_urls: int
+    alive_urls_pct: float
 
 
 @dataclass
@@ -62,7 +62,7 @@ class ScanTime:
     """
 
     scanner_name: str
-    scann_time: datetime.timedelta
+    scan_time: datetime.timedelta
 
 
 @dataclass
@@ -73,10 +73,11 @@ class Stats:
 
     """
 
-    sub_scans_time: list[ScanTime]
+    urls_number: int
+    scanners_times_stats: list[ScanTime]
     alive_stats: AliveStats = None
-    chrome_safebrowsing: ChromeSafeBrowsingStats = None
-    scan_time: datetime.timedelta | None = field(init=False)
+    chrome_safebrowsing_stats: ChromeSafeBrowsingStats = None
+    scanning_time: datetime.timedelta | None = field(init=False)
 
     def __post_init__(self):
         """
@@ -84,9 +85,9 @@ class Stats:
 
         """
         try:
-            self.scan_time = max([sub_time.scann_time for sub_time in self.sub_scans_time])
+            self.scanning_time = max([sub_time.scan_time for sub_time in self.scanners_times_stats])
         except ValueError:
-            self.scan_time = None
+            self.scanning_time = None
 
 
 @dataclass
@@ -155,7 +156,7 @@ class Report:
     """
 
     url_results: list[URLResult]
-    stats: Stats
+    statistics: Stats
 
     def to_dict(self) -> dict:
         return asdict(self, dict_factory=report_dict_factory)
@@ -220,7 +221,7 @@ def generate_report(sub_reports: list[SubReport], scanned_urls: list[str]) -> Re
             elif isinstance(stat, ChromeSafeBrowsingStats):
                 chrome_stats = stat
 
-    stats = Stats(sub_scans_time, alive_stats, chrome_stats)
+    stats = Stats(len(scanned_urls), sub_scans_time, alive_stats, chrome_stats)
 
     return Report(url_results, stats)
 
