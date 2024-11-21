@@ -115,23 +115,21 @@ def test_get_urls_phishstats_return_from_cache(requests_mock, phishstats_text, s
 
 
 @pytest.mark.parametrize(
-    "total_num, source, exp_openpish_num, exp_phishstats_num",
+    "total_num, exp_openpish_num, exp_phishstats_num",
     [
-        (49, None, 24, 25),
-        (40, None, 20, 20),
-        (1, None, 0, 1),
-        (1, "phishstats", 0, 1),
-        (1, "openphish", 1, 0),
-        (20, "phishstats", 0, 20),
-        (20, "openphish", 20, 0),
+        (49, 24, 25),
+        (40, 20, 20),
+        (1, 0, 1),
+        (2, 1, 1),
+        (21, 10, 11),
     ],
 )
-def test_get_urls(total_num, source, exp_openpish_num, exp_phishstats_num, requests_mock, phishstats_text, openphish_text):
+def test_get_urls(total_num, exp_openpish_num, exp_phishstats_num, requests_mock, phishstats_text, openphish_text):
     d = DataCollector()
     requests_mock.get(d._phishstats_url, text=phishstats_text)
     requests_mock.get(d._openphish_url, text=openphish_text)
 
-    urls = d.get_urls(total_num, source)
+    urls = d.get_urls(total_num)
 
     assert urls.count("https://dummy.openphish.com") == exp_openpish_num
     assert urls.count("https://dummy.phishstats.com") == exp_phishstats_num
