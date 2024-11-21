@@ -22,7 +22,6 @@ from playwright.async_api import (BrowserContext, Page, Playwright,
 from source.detector.report import (ChromeSafeBrowsingResult,
                                     ChromeSafeBrowsingStats, IsPhishingResult,
                                     ScanTime, SubReport)
-from source.detector.scanners.website_status_scanner import DEAD_RESPONSE_CODES
 from source.detector.scanners.scanner import Scanner
 from source.settings import CHROME_PATH, CHROME_USER_DATA_DIR
 

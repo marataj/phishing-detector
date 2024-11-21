@@ -106,3 +106,20 @@ class DataCollector:
             self._phishstats_last_update = datetime.now()
 
         return self._phishstats_urls[:url_number]
+
+    def get_urls(self, url_number: int) -> list[str]:
+        """
+        Collecting data from both available data sources and returns combined url list.
+
+        Parameters
+        ----------
+        url_number: `int`
+            Number of URLs to be collected.
+
+        Returns
+        -------
+        `list` [`str`]
+            List of URLs.
+
+        """
+        return [*self.get_urls_openphish(url_number//2), *self.get_urls_phishstats(url_number - url_number//2)]

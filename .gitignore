@@ -238,7 +238,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-#.env
+.env
 .venv
 env/
 venv/
@@ -287,4 +287,5 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
+results/
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm
