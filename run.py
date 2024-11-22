@@ -96,10 +96,20 @@ def perform_scan(args: argparse.Namespace) -> None:
     """
     if (not any([args.input, args.auto_collect])) or all([args.input, args.auto_collect]):
         raise argparse.ArgumentTypeError(
-            "Arguments input and auto_collect are alternatives. Exactly one from them must be provided."
+            "Arguments input and auto_collect are alternatives. Only exactly one from them must be provided."
         )
+    if args.input and any([args.phish_stats, args.open_phish]):
+        raise argparse.ArgumentTypeError("Source of the data can be declared only in auto collect mode.")
 
-    urls = args.input or DataCollector().get_urls(args.auto_collect)
+    auto_collection_method = None
+    if args.phish_stats:
+        auto_collection_method = "get_urls_phishstats"
+    elif args.open_phish:
+        auto_collection_method = "get_urls_openphish"
+    if all([args.phish_stats, args.open_phish]) or not any([args.phish_stats, args.open_phish]):
+        auto_collection_method = "get_urls"
+
+    urls = args.input or getattr(DataCollector(), auto_collection_method)(args.auto_collect)
 
     print("Start scanning...")
 
@@ -137,6 +147,12 @@ def argparse_config() -> argparse.Namespace:
     parser.add_argument("--input", type=str, action="extend", nargs="+", help="User defined URLs to be scanned.")
     parser.add_argument(
         "--auto-collect", type=int, help="Number of URLs to be automatically collected from the open sources."
+    )
+    parser.add_argument(
+        "--open-phish", action="store_true", help="Determines OpenPhish as a automatically collected data source."
+    )
+    parser.add_argument(
+        "--phish-stats", action="store_true", help="Determines PhishStats as a automatically collected data source."
     )
     parser.add_argument(
         "--chrome-safebrowsing-enabled", action="store_true", help="Activates Chrome Safe Browser Scanning."

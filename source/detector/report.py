@@ -162,7 +162,7 @@ class Report:
         return asdict(self, dict_factory=report_dict_factory)
 
     def to_json(self) -> str:
-        return json.dumps(self.to_dict())
+        return json.dumps(self.to_dict(), indent=2)
 
 
 @dataclass
