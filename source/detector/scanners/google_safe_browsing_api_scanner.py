@@ -18,7 +18,7 @@ from aiohttp import ClientSession
 
 from source.detector.report import IsPhishingResult, ScanTime, SubReport
 from source.detector.scanners.scanner import Scanner
-from source.settings import GSB_API_KEY
+from source.settings import GOOGLE_SAFE_BROWSING_API_KEY
 
 __all__ = ["GoogleSafeBrowsingAPIScanner"]
 
@@ -54,7 +54,7 @@ class GoogleSafeBrowsingAPIScanner(Scanner):
 
         """
         super().__init__(url_list)
-        self.__api_key = GSB_API_KEY
+        self.__api_key = GOOGLE_SAFE_BROWSING_API_KEY
         if not self.__api_key:
             raise AttributeError("Lack of VirusTotal API KEY.")
         self._api_url = f"https://safebrowsing.googleapis.com/v4/threatMatches:find?key={self.__api_key}"

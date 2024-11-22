@@ -16,6 +16,6 @@ env_path = Path(__file__).resolve().parents[1] / '.env'
 load_dotenv(env_path)
 
 VIRUS_TOTAL_API_KEY = os.getenv("VIRUS_TOTAL_API_KEY") or None
-GSB_API_KEY = os.getenv("GSB_API_KEY") or None
+GOOGLE_SAFE_BROWSING_API_KEY = os.getenv("GOOGLE_SAFE_BROWSING_API_KEY") or None
 CHROME_PATH = os.getenv("CHROME_PATH") or None
 CHROME_USER_DATA_DIR = os.getenv("CHROME_USER_DATA_DIR") or None
