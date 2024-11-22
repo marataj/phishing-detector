@@ -3,7 +3,7 @@ Phishing Detector
 
 Welcome to Phishing Detector, which is a comprehensive Python application that automates the detection and analysis of 
 phishing websites using multiple data sources and detection engines.
----
+
 Main features
 -------------
 ### URL data collection
