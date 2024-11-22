@@ -148,12 +148,14 @@ class VirusTotalScanner(Scanner):
             async with session.get(
                 url=f"{self._api_url}analyses/{scan_id}", headers={"x-apikey": self.__api_key}
             ) as response:
+
+                if response.status == HTTPStatus.TOO_MANY_REQUESTS:
+                    raise VirusTotalApiError("Number of requests per account was exceeded. Check VirusTotal account.")
+
                 if response.status != HTTPStatus.OK:
                     raise HTTPException(
                         f"Unexpected response status of VirusTotal response: {HTTPStatus(response.status)}"
                     )
-                if response.status == HTTPStatus.TOO_MANY_REQUESTS:
-                    raise VirusTotalApiError("Number of requests per account was exceeded. Check VirusTotal account.")
 
                 body = await response.json()
 

@@ -10,16 +10,18 @@ Module containing the logic of detector engine.
 """
 
 import asyncio
-from urllib.parse import urlparse
 
+import validators
 from aiohttp import ClientSession, ClientTimeout
 
 from source.detector.report import Report, SubReport, generate_report
-from source.detector.scanners.google_safe_browsing_api_scanner import GoogleSafeBrowsingAPIScanner
+from source.detector.scanners.alive_scanner import AliveScanner
+from source.detector.scanners.chrome_safe_browsing_scanner import \
+    ChromeSafeBrowsingScanner
+from source.detector.scanners.google_safe_browsing_api_scanner import \
+    GoogleSafeBrowsingAPIScanner
 from source.detector.scanners.scanner import Scanner
 from source.detector.scanners.virus_total_scanner import VirusTotalScanner
-from source.detector.scanners.alive_scanner import AliveScanner
-from source.detector.scanners.chrome_safe_browsing_scanner import ChromeSafeBrowsingScanner
 
 __all__ = ["Detector"]
 
@@ -72,7 +74,7 @@ class Detector:
         """
         errors = []
         for url in urls:
-            if self._validate_url(url):
+            if validators.url(url):
                 continue
             errors.append(url)
 
@@ -101,28 +103,6 @@ class Detector:
 
         reports = [scanner.generate_report() for scanner in scanners]
         return self._create_report(reports, url_list)
-
-    @staticmethod
-    def _validate_url(url: str) -> bool:
-        """
-        Method responsible for validation of the single URL.
-
-        Parameters
-        ----------
-        url: `str`
-            URL to be validated.
-
-        Returns
-        -------
-        `bool`
-            True if URL is valid, False otherwise.
-
-        """
-        try:
-            result = urlparse(url)
-            return all([result.scheme, result.netloc])
-        except AttributeError:
-            return False
 
     @staticmethod
     def _create_report(sub_reports: list[SubReport], urls: list[str]) -> Report:
