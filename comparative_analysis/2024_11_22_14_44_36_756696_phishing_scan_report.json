@@ -1,0 +1,2636 @@
+{
+  "url_results": [
+    {
+      "url": "http://netflix-clone-first-react-app.vercel.app/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://cqlaleeo.pink/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://currently4567.weebly.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://tg-tegram.com/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://cv.geldmagazin.de/asj4hE2E13/jIrHy",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://create-wc-dapp.vercel.app/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://loggen-basecoinnpr0.godaddysites.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://jdfjfjhfsearchcurrentlyjf.weebly.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://trabroraussifro-9953.vercel.app/rals.html",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://rebrand.ly/3a5qyw5",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://apie.idlle.cn/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://metamaask-wa-wallet.godaddysites.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://feiraolimpa.netlify.app/cpf",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": false
+    },
+    {
+      "url": "http://yngsownjd.com/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://www.bertsync.top/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": false
+    },
+    {
+      "url": "http://investors.spotify.com.sg.misteri.us.kg/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": null
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": null
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://91933802.awi.za.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://bt-102116.weeblysite.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://sgbrt.top/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://shorten.ee/@helpcontact680789",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://netzeromailaccount.weebly.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://currently87655.weebly.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://45164567.awi.za.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://sg4.xbenihime.us.kg/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": null
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": null
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://updatecleanway3.weebly.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://18482695.awi.za.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://ulbgo.top/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://facebook00wefdf2.github.io/fackbook",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://shawebalert.weebly.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://instagram-eta-gray.vercel.app/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://cv.geldmagazin.de/asj4hE2E9/V8jBY",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://cv.geldmagazin.de/Awh4iqcD8/V8jBY",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://home-101054.weeblysite.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://tun.laowu.link/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://a.rigr356.cc/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://usps.com-trackinginz.top/i/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://usps.com-trackingien.cyou/i/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://p.updateinfouf.top/us/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://sydlegal001.bitbucket.io/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://quicklyxsuggestions.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://cv.geldmagazin.de/asj4hE2E13/BKeehs",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://sky-104413.weeblysite.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://netflix-seven-beta.vercel.app/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://feteyuyegd.weebly.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://luiza-oficial.shop/1/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://pupstoken-whitelist.pages.dev/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://allegro-400.com/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": 403
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://support-uk-cshelp-personal.getit.ink/countries.html/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://spotify7972.freewebhostmost.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://cernifg359.cyou/m/register?codeNumber=24686",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://google.com/amp/s/cgncollege.com/ds",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://google.com/amp/s/abre.ai/k8hX",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": null
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": null
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://Google.com/amp/qrco.de/bfQv1c",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://google.com//amp/a/barkingspainc.com/.Mtree34$/EMAIL_REDACTED",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://95.200.148.37.host.secureserver.net/touchsc/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": null
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": null
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://69.232.109.208.host.secureserver.net/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://169.174.153.160.host.secureserver.net/myswisscom0888721/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": null
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": null
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://137.232.109.208.host.secureserver.net/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": 500
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": null
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": null
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://10.79.148.132.host.secureserver.net/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://zuqxurpn.quest/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": null
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://yimokeugeige-3630.vercel.app/ratixx.html",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://xannappegadde-3030.vercel.app/ratixx.html",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://www.telegrambb.com/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://www.support-uk-cshelp-personal.getit.ink/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://www.refreshrpc.info/secure/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://www.poolbinance.top/en/learn-and-earn",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://www.check154109.click/Help202",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": null
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://www.bet83020.com/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://www.bet83015.com/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://www.bb365666.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 443
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://wqirr4rpv.top/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://wb3-wallet.shop/",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://waxed.shop/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://vocalefix62.weebly.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://uzpuq.top/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://utj4rygg6.top/login",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackxbw.top/us",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackwxt.top/us",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackwpx.top/us",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackvtx.top/us",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-tracktyc.top/us",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackqbk.top/us",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackobe.top/us",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackmjf.top/us",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackjow.top/us",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackjbv.top/us",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackingiam.cyou/i",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://usps.com-trackina.xyz/i",
+      "is_alive": {
+        "is_alive": false,
+        "response_code": null
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": null
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://upiuldlagix.godaddysites.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://trouleppefroiha-1688.vercel.app/ratixx.html",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://tiktool.cc/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://telstra-100247.weeblysite.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://telegrm-channel.xyz/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://telegrcxm.club/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://teiergman.xyz/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://tegegram.dmrtaxes.com/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://tbbck.top/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": false
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "http://taypaaydomv3.info/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://yimokeugeige-3630.vercel.app/ratixx.html/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    },
+    {
+      "url": "https://xannappegadde-3030.vercel.app/ratixx.html/",
+      "is_alive": {
+        "is_alive": true,
+        "response_code": 200
+      },
+      "is_phishing_sub_results": [
+        {
+          "scanner_name": "VirusTotalScanner",
+          "is_phishing": true
+        },
+        {
+          "scanner_name": "GoogleSafeBrowsingAPIScanner",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_no_sb",
+          "is_phishing": false
+        },
+        {
+          "scanner_name": "ChromeSafeBrowsingScanner_sb",
+          "is_phishing": true
+        }
+      ],
+      "is_phishing": true
+    }
+  ],
+  "statistics": {
+    "urls_number": 100,
+    "scanners_times_stats": [
+      {
+        "scanner_name": "VirusTotalScanner",
+        "scan_time": "0:00:43.356706"
+      },
+      {
+        "scanner_name": "GoogleSafeBrowsingAPIScanner",
+        "scan_time": "0:00:00.401503"
+      },
+      {
+        "scanner_name": "AliveScanner",
+        "scan_time": "0:00:02.994994"
+      },
+      {
+        "scanner_name": "ChromeSafeBrowsingScanner",
+        "scan_time": "0:01:14.776480"
+      }
+    ],
+    "alive_stats": {
+      "alive_urls": 84,
+      "alive_urls_pct": 84.0
+    },
+    "chrome_safebrowsing_stats": {
+      "no_sb_blocked_urls": 0,
+      "no_sb_blocked_urls_pct": 0.0,
+      "sb_blocked_urls": 63,
+      "sb_blocked_urls_pct": 63.0
+    },
+    "scanning_time": "0:01:14.776480"
+  }
+}
