@@ -99,12 +99,14 @@ class GoogleSafeBrowsingAPIScanner(Scanner):
             The body of the scanning response.
 
         """
-        results = {url: False for url in self.url_list}
         if "matches" in resp_body:
-            for match in resp_body["matches"]:
-                results[match["threat"]["url"]] = True
+            matched_urls = [match["threat"]["url"] for match in resp_body["matches"]]
+            results = [True if url in matched_urls else False for url in self.url_list]
 
-        self._results = [IsPhishingResult(self.__class__.__name__, result) for result in results.values()]
+        else:
+            results = [False for _ in self.url_list]
+
+        self._results = [IsPhishingResult(self.__class__.__name__, result) for result in results]
 
     async def _scan_urls(self, session: ClientSession) -> dict:
         """
