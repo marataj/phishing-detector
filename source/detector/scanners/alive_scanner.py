@@ -11,13 +11,11 @@ Module containing implementation of the Alive Scanner.
 
 import asyncio
 from datetime import datetime
-from http import HTTPStatus
 
 from aiohttp import ClientSession
 from aiohttp.client_exceptions import ClientError
 
-from source.detector.report import (AliveStats, IsAliveResult, ScanTime,
-                                    SubReport)
+from source.detector.report import AliveStats, IsAliveResult, ScanTime, SubReport
 from source.detector.scanners.scanner import Scanner
 
 __all__ = ["AliveScanner"]
@@ -43,18 +41,6 @@ class AliveScanner(Scanner):
         self._results: list[IsAliveResult] | None = None
         self._scan_time: ScanTime | None = None
         self.request_timeout = 3
-        self._dead_codes = [
-            HTTPStatus.BAD_REQUEST,
-            HTTPStatus.FORBIDDEN,
-            HTTPStatus.NOT_FOUND,
-            HTTPStatus.REQUEST_TIMEOUT,
-            HTTPStatus.GONE,
-            HTTPStatus.INTERNAL_SERVER_ERROR,
-            HTTPStatus.BAD_GATEWAY,
-            HTTPStatus.SERVICE_UNAVAILABLE,
-            HTTPStatus.GATEWAY_TIMEOUT,
-            HTTPStatus.HTTP_VERSION_NOT_SUPPORTED,
-        ]
 
     def _evaluate_response_code(self, response_code: int) -> bool:
         """
@@ -71,11 +57,7 @@ class AliveScanner(Scanner):
             Website status - returns True if website is alive, False otherwise.
 
         """
-        is_alive = True
-        if response_code in self._dead_codes:
-            is_alive = False
-
-        return is_alive
+        return False if 600 > response_code >= 400 else True
 
     async def _scan_url(self, session: ClientSession, url: str) -> IsAliveResult:
         """
