@@ -117,9 +117,10 @@ class VirusTotalScanner(Scanner):
         tasks = [self._scan_single_url(session, url) for url in self.url_list]
         return await asyncio.gather(*tasks)
 
-    async def _get_single_result(self, session: ClientSession, scan_id: str) -> bool:
+    async def _wait_for_analysis_result(self, session: ClientSession, scan_id: str) -> str:
         """
-        Method sending get result request for single URL.
+        Method waiting for the  result of the URL analysis. The method executes N requests for result of the analysis,
+        and returns the response's content only if the status of the analysis is completed.
 
         Parameters
         ----------
@@ -128,14 +129,41 @@ class VirusTotalScanner(Scanner):
         scan_id : `str`
             Object containing ID of the scan corresponding to the requested analysis results.
 
-        Raises
-        ------
-        HTTPException
-            Raises after unexpected status of the API response.
-        ValueError
-            Raises after exceeding the maximum number of attempts of get requests.
-        VirusTotalAPIException
-            Raises when number of request was exceeded.
+        Returns
+        -------
+        `dict`
+            JSON body of the Virus API response, containing completed URL analysis.
+
+        """
+        for _ in range(self._retry_counter):
+            async with session.get(
+                url=f"{self._api_url}analyses/{scan_id}", headers={"x-apikey": self.__api_key}
+            ) as response:
+                if response.status == HTTPStatus.TOO_MANY_REQUESTS:
+                    raise VirusTotalApiError("Number of requests per account was exceeded. Check VirusTotal account.")
+
+                if response.status != HTTPStatus.OK:
+                    raise HTTPException(f"Unexpected status of VirusTotal API response: {HTTPStatus(response.status)}")
+
+                body = await response.json()
+
+                if body["data"]["attributes"]["status"] == "completed":
+                    return body
+
+                await asyncio.sleep(self._retry_delay_s)
+
+        raise ValueError("Maximum number of attempts to get the TotalVirus scan result exceeded.")
+
+    async def _get_single_result(self, session: ClientSession, scan_id: str) -> bool:
+        """
+        Method responsible for collecting and evaluating results.
+
+        Parameters
+        ----------
+        session : `ClientSession`
+            AioHTTP session for asynchronous HTTP requests.
+        scan_id : `str`
+            Object containing ID of the scan corresponding to the requested analysis results.
 
         Returns
         -------
@@ -143,29 +171,9 @@ class VirusTotalScanner(Scanner):
             Scan result - True if the URL shall be considered as phishing, False otherwise.
 
         """
-        # TODO: This method is too complex - must be split and simplified
-        for _ in range(self._retry_counter):
-            async with session.get(
-                url=f"{self._api_url}analyses/{scan_id}", headers={"x-apikey": self.__api_key}
-            ) as response:
-
-                if response.status == HTTPStatus.TOO_MANY_REQUESTS:
-                    raise VirusTotalApiError("Number of requests per account was exceeded. Check VirusTotal account.")
-
-                if response.status != HTTPStatus.OK:
-                    raise HTTPException(
-                        f"Unexpected response status of VirusTotal response: {HTTPStatus(response.status)}"
-                    )
-
-                body = await response.json()
-
-                if body["data"]["attributes"]["status"] == "completed":
-                    malicious_num = int(body["data"]["attributes"]["stats"]["malicious"])
-                    return self._eval_is_phishing(malicious_num)
-
-                await asyncio.sleep(self._retry_delay_s)
-
-        raise ValueError("Maximum number of attempts to get the TotalVirus scan result exceeded.")
+        response_json = await self._wait_for_analysis_result(session, scan_id)
+        malicious_num = int(response_json["data"]["attributes"]["stats"]["malicious"])
+        return self._eval_is_phishing(malicious_num)
 
     async def _get_results(self, session: ClientSession, scan_ids: list[str]) -> list[bool]:
         """
