@@ -34,11 +34,22 @@ How to start
 The application is compatible with Python 3.10.
 
 1. Clone the repository.
-2. Install requirements:
+2. Poetry installation.  
+    Install from https://install.python-poetry.org or:
     ```bash
-   pip install -r requirements.txt
+   pip install poetry
 
-3. Complete `.env` file, by filling in the API Keys. [VirusTotal sign up](https://www.virustotal.com/gui/join-us),
+3. Create virtual environment and install requirements.  
+    Run following command in the project directory:
+    ```bash
+   poetry install
+
+4. Open virtual environment.
+    ```bash
+   poetry shell
+
+5. Complete `.env` file, by filling in the API Keys.  
+[VirusTotal sign up](https://www.virustotal.com/gui/join-us),  
 [Google Safe Browsing API get started](https://developers.google.com/safe-browsing/v4/get-started).
 
 ### Chrome Safe Browsing configuration
