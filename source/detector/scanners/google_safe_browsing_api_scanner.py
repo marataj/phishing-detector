@@ -76,10 +76,7 @@ class GoogleSafeBrowsingAPIScanner(Scanner):
                 "client": {"clientId": "phishing_detector", "clientVersion": "1.0"},
                 "threatInfo": {
                     "threatTypes": [
-                        "MALWARE",
                         "SOCIAL_ENGINEERING",
-                        "UNWANTED_SOFTWARE",
-                        "POTENTIALLY_HARMFUL_APPLICATION",
                     ],
                     "platformTypes": ["ANY_PLATFORM"],
                     "threatEntryTypes": ["URL"],

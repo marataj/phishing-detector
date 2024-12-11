@@ -172,8 +172,7 @@ class VirusTotalScanner(Scanner):
 
         """
         response_json = await self._wait_for_analysis_result(session, scan_id)
-        malicious_num = int(response_json["data"]["attributes"]["stats"]["malicious"])
-        return self._eval_is_phishing(malicious_num)
+        return self._eval_is_phishing(response_json["data"]["attributes"]["results"])
 
     async def _get_results(self, session: ClientSession, scan_ids: list[str]) -> list[bool]:
         """
@@ -196,14 +195,20 @@ class VirusTotalScanner(Scanner):
         tasks = [self._get_single_result(session, scan_id) for scan_id in scan_ids]
         return await asyncio.gather(*tasks)
 
-    def _eval_is_phishing(self, malicious_num: int) -> bool:
+    def _eval_is_phishing(self, results: dict) -> bool:
         """
         Utility function responsible for evaluation if the URL shall be considered as phishing.
 
         Parameters
         ----------
-        malicious_num : `int`
-            Number of reports defining the URL as malicious.
+        results : `dict`
+            Dictionary containing results from different Virus Total vendors in following format.
+            "Vendor Name": {
+                    "method": str,
+                    "engine_name": str,
+                    "category": str,
+                    "result": str,
+                },
 
         Returns
         -------
@@ -211,6 +216,11 @@ class VirusTotalScanner(Scanner):
             True if the URL shall be considered as phishing, False otherwise.
 
         """
+        malicious_num = 0
+        for k, v in results.items():
+            if v.get("result") == "phishing":
+                malicious_num += 1
+
         return malicious_num >= self._phishing_threshold
 
     async def run(self, session: ClientSession) -> None:
