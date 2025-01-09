@@ -18,37 +18,6 @@ from source.data_collector import DataCollector
 from source.detector.detector import Detector
 
 
-def validate_exe(path: str) -> Path:
-    """
-    Validates executable path.
-
-    Parameters
-    ----------
-    path: `str`
-        Path to the directory.
-
-    Raises
-    ------
-    argparse.ArgumentTypeError
-        Raises if validation fails.
-
-    Returns
-    -------
-    `Path`
-        Path to the .exe file as a pathlib.Path object.
-
-    """
-    path = Path(path)
-    if not path.exists():
-        raise argparse.ArgumentTypeError(f"File {path} doesn't exist")
-    if not path.is_file():
-        raise argparse.ArgumentTypeError(f"{path} is not a valid file.")
-    if not path.suffix == ".exe":
-        raise argparse.ArgumentTypeError(f"File {path} is not executable.")
-
-    return path
-
-
 def validate_dir(path: str) -> Path:
     """
     Validates directory path.
